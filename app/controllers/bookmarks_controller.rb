@@ -4,7 +4,7 @@ class BookmarksController < ApplicationController
 
   def new
     @bookmark = Bookmark.new
-    @list = List.find(params(:list_id))
+    @review = Review.new(list: @list)
   end
 
   def create

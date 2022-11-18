@@ -1,13 +1,14 @@
-<div class="container">
+<div class="container py-5">
   <div class="row">
-    <div class="col-xs-12 col-sm-10 col-sm-offset-1">
-      <h1>Add a new movie</h1>
-      <%= simple_form_for [@list, @bookmark] do |f| %>
-        <%= f.input :comment %>
-        <%= f.association :movie %>
-        <%= f.submit class: 'btn btn-primary mt-4' %>
-      <% end %>
-      <%= link_to "Back to bookmark", bookmarks_path %>
+    <div class="col-12 col-md-6 offset-lg-3">
+      <div class="bg-white rounded p-3 shadow">
+        <h3>Add a movie to your <%= @list.name %> list</h3>
+        <%= simple_form_for [@list, @bookmark] do |f| %>
+          <%= f.input :comment, placeholder: 'Enter a comment about the movie' %>
+          <%= f.association :movie, prompt: "Select a movie", input_html: {data: { controller: "tom-select"}} %>
+          <%= f.submit class: "btn btn-flat" %>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
